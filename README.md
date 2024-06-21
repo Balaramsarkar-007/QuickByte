@@ -1,4 +1,5 @@
-![https://github.com/Balaramsarkar-007/QuickByte/assets/153585785/034973f8-abfa-49a1-96ce-2c271d420387](https://res.cloudinary.com/dh8molerc/image/upload/v1718895660/Designer__2___1_-removebg-preview_pv1zes.png)
+![Designer (2)](https://github.com/Balaramsarkar-007/QuickByte/assets/153585785/70bf287a-9462-43c8-a98d-ede351af8aca)
+
 
 **QuickByte A Food Ordering Based Web Application**
 Welcome to QuickByte, a robust and feature-rich food listing application built with Node.js, Express, and MongoDB. This application follows the Model-View-Controller (MVC) design pattern, ensuring a well-structured and maintainable codebase.
