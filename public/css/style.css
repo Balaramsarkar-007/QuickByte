@@ -1,0 +1,265 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.card-listing {
+    margin-top: 5rem;
+    /* width: 26rem !important; */
+    border-radius: 2rem !important;
+    border: none !important;
+    overflow: hidden !important;
+}
+
+.head-card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.card-listing p {
+    font-size: 1.2rem;
+}
+
+.card-listing img {
+    border-radius: 2rem !important;
+    /* height: 20rem !important; */
+    object-fit: cover !important;
+}
+
+.card-img-top {
+    opacity: 1;
+}
+
+.card-img-top:hover{
+    opacity: 0.5;
+}
+
+
+.heading-title {
+    color: #DE3337;
+    font-size: 2.5rem;
+    font-weight: 650;
+}
+
+.heading-catagoty {
+    color: #FF6200;
+    font-size: 2rem;
+    font-weight: 650;
+}
+
+
+/* footer */
+
+footer {
+    height: 7rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(77, 77, 77, 0.267) ;
+}
+
+.f-com a {
+    color: #222222;
+}
+
+.f-info a {
+    text-decoration: none;
+    font-size: 1.1rem;
+    color: #222222;
+    margin-left: 1rem;
+}
+
+.f-info-social {
+    width: 100%;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+}
+
+.f-links i {
+   margin-left: 1rem;
+   font-size: 1.6rem;
+}
+
+.f-info {
+    width: 100%;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+}
+
+
+.f-info a, .f-com a:hover {
+    text-decoration: underline;
+}
+
+/* show */
+
+.card-show {
+    height: 35rem !important;
+    border: 2px solid black;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.card-img {
+    overflow: hidden;
+    object-fit: cover;
+}
+
+/* review moedel */
+
+.rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+
+.rate label {
+    margin-left: 3rem;
+    font-size: 5rem;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) >  label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}   
+
+/* review card */
+.review-card {
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+}
+ .card-body-review {
+    border-radius: 3rem !important;
+}
+
+.rating-body {
+    display: flex;
+    align-items: center;
+}
+
+.rating-body p {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.rating {
+    height: 2rem;
+    width: auto;
+    padding:0 0.5rem;
+    background-color: rgba(2, 157, 2, 0.934);
+    display: flex;
+    justify-content: center;
+    border-radius: 0.5rem;
+    color: #ffff;
+    font-weight: 600;
+}
+
+.rating i {
+    margin-top: 0.5rem;
+    padding-left: 4px;
+    font-size: 0.9rem;
+}
+
+.contenor {
+    flex: 1;
+}
+
+footer {
+    width: 100%;
+}
+
+/* ordering */
+
+.card-order img {
+    height: 5rem !important;
+}
+
+.show-card {
+    border: 2px solid black;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.quintity {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 1rem;
+}
+
+.quintity input {
+    height: 2rem;
+}
+
+.price {
+    display: flex;
+}
+
+.outer-contenor {
+    display: flex;
+    align-items:center;
+}
+
+.inner-contenor i {
+    margin-left: 35%;
+    font-size: 1.4rem;
+    color: #000;
+}
+
+.inner-contenor {
+    margin-left: 1rem;
+}
+
+/* logo */
+.logo {
+    height: 100%;
+    width: 11rem;
+    font-weight: 600;
+    font-size: 1.4rem;
+    position: relative;
+}
+
+.logo img {
+    height: 100%;
+    width: 3.5rem;
+    margin: 0 !important;
+    border-radius: 50%;
+    object-fit: cover;
+}

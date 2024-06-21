@@ -1,0 +1,68 @@
+<header class="p-3 text-bg-light header sticky-top">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center text-dark  text-decoration-none logo">
+          <img src="https://res.cloudinary.com/dh8molerc/image/upload/v1718895660/Designer__2___1_-removebg-preview_pv1zes.png" alt="Logo" width="60" height="50">
+          Quickbyte
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="/" class="nav-link px-2 text-secondary">Home</a></li>
+          <li><a href="/listings" class="nav-link px-2 text-secondary">All Listings</a></li>
+          <% if(currUser && currUser.shopeName) { %>
+          <li><a href="/new" class="nav-link px-2 text-dark">Add New</a></li>
+          <% } %>
+        </ul>
+
+        <form action="/search" method="get" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">  
+          <input type="text" class="form-control form-control-dark text-bg-light" placeholder="Search..." name="search" aria-label="Search">
+        </form>
+
+        <div class="text-end">
+          <% if(!currUser) { %>           
+          <a href="/login" class="btn btn-outline-dark me-2">Login</a>
+          <a href="/signUp" class="btn btn-warning">Sign-up</a>
+          <% }%> 
+          <% if(currUser && currUser.shopeName) { %>
+            <a href="/orders/orderrequest/<%= currUser._id%>" class="btn btn-outline-warning me-2 position-relative ">orders requestes
+              <i class="fa-solid fa-cart-plus"></i>
+              <% if(currUser.newOrders && currUser.newOrders > 0) { %>
+              <span class="position-absolute top-0 translate-middle badge rounded-pill bg-danger"> <%= currUser.newOrders %>+ </span>
+              <% } %>
+            </a>
+          <% } %> 
+          <% if(currUser) { %>
+          <a href="/orders/<%= currUser._id%>" class="btn btn-outline-primary me-2">my orders
+            <i class="fa-solid fa-cart-shopping"></i>
+          </a>
+          <a href="/logout" class="btn btn-danger">Logout</a>
+          <% }%>
+        </div>
+     
+      </div>
+    </div>
+  </header>
+
+<div class="outer-contenor offset-1 mt-3">
+  <div class="inner-contenor">
+    <a href="/foodlistings/snacks" class="inner-nav-contenor nav-link px-2 text-dark" name="snacks">
+    <i class="fa-solid fa-cookie"></i>
+    <p>Sancks</p>
+    </a>
+  </div>
+
+  <div class="inner-contenor" name="snacks">
+    <a href="/foodlistings/ice-cream">
+    <i class="fa-solid fa-ice-cream"></i>
+    <p class="inner-nav-contenor nav-link px-2 text-dark">Ice creem</p>
+    </a> 
+  </div>
+
+  <div class="inner-contenor" name="snacks">
+    <a a href="/foodlistings/juice" class="inner-nav-contenor nav-link px-2 text-dark">
+    <i class="fa-solid fa-bottle-water"></i>
+    <p>Juice</p>
+    </a> 
+  </div>
+</div>  
+  

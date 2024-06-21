@@ -1,0 +1,122 @@
+<% layout("/layout/boilerPlate.ejs") %>
+
+<%  let avgRat = (arr) => {  %>
+    <% let sum = 0;  %>  
+    <% for (let reviews of arr) { %>
+     <%  sum += reviews.rating;   %> 
+    <% } %>
+    <% if(sum == 0) return 0; %>
+    <% return (sum / arr.length).toFixed(1); %>
+ <% } %>
+
+<body>
+        <div class="main-body">
+            <h4 class="offset-1 mt-3 heading-catagoty">Snacks</h4>
+
+            <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 offset-1 head-card">
+                <% for( foodListing of foodListings ) { %>
+                    <% if(foodListing.category === "snacks") { %>
+                        <a href="/show/<%= foodListing._id %>">
+                        
+                        <div class="card card-listing" style="width: 25rem;">
+                            <img src="<%= foodListing.image.url %>" class="card-img-top" alt="foodListing_image" style="height: 20rem;">
+                            <div class="card-body">
+                            <div class="para">   
+                                <p class="card-text"> <b><%= foodListing.title %> </b></p>
+                                <p class="card-text"> <%= foodListing.about %> </p>
+                            </div>
+    
+                            <div class="par">
+                                <p><b> &#8377;<%= foodListing.price.toLocaleString("en-IN") %></b>/one</p>
+                            </div>
+
+                            <div class="rating-body">
+                                <div class="rating card-text">
+                                    <p class="card-text"> <%= avgRat(foodListing.review) %></p>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <p class="card-text"> ratings </p>
+                            </div>
+
+                            </div>
+                        </div>
+    
+                        </a>
+                    <% } %>     
+                    
+                <% } %>    
+            </div>
+
+            <h4 class="offset-1 mt-3 heading-catagoty">Juice/ColdDrinks</h4>
+
+            <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 offset-1 head-card">
+                <% for( foodListing of foodListings ) { %>
+                    <% if(foodListing.category === "juice/coldDrinks") { %>
+                        <a href="/show/<%= foodListing._id %>">
+                        
+                        <div class="card card-listing" style="width: 25rem;">
+                            <img src="<%= foodListing.image.url %>" class="card-img-top" alt="foodListing_image" style="height: 20rem;">
+                            <div class="card-body">
+                            <div class="para">   
+                                <p class="card-text"> <b><%= foodListing.title %> </b></p>
+                                <p class="card-text"> <%= foodListing.about %> </p>
+                            </div>
+    
+                            <div class="par">
+                                <p><b> &#8377;<%= foodListing.price.toLocaleString("en-IN") %></b>/one</p>
+                            </div>
+
+                            <div class="rating-body">
+                                <div class="rating card-text">
+                                    <p class="card-text"> <%= avgRat(foodListing.review) %></p>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <p class="card-text"> ratings </p>
+                            </div>
+                            </div>
+                        </div>
+    
+                        </a>
+                    <% } %>     
+                    
+                <% } %>    
+            </div>
+
+            <h4 class="offset-1 heading-catagoty mt-3">Ice Cream</h4>
+
+            <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 offset-1 head-card">
+                <% for( foodListing of foodListings ) { %>
+                    <% if(foodListing.category === "ice cream") { %>
+                        <a href="/show/<%= foodListing._id %>">
+                        
+                        <div class="card card-listing" style="width: 25rem;">
+                            <img src="<%= foodListing.image.url %>" class="card-img-top" alt="foodListing_image" style="height: 20rem;">
+                            <div class="card-body">
+                            <div class="para">   
+                                <p class="card-text"> <b><%= foodListing.title %> </b></p>
+                                <p class="card-text"> <%= foodListing.about %> </p>
+                            </div>
+    
+                            <div class="par">
+                                <p><b> &#8377;<%= foodListing.price.toLocaleString("en-IN") %></b>/one</p>
+                            </div>
+
+                            <div class="rating-body">
+                                <div class="rating card-text">
+                                    <p class="card-text"> <%= avgRat(foodListing.review) %></p>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <p class="card-text"> ratings </p>
+                            </div>
+    
+                            </div>
+                        </div>
+    
+                        </a>
+                    <% } %>     
+                    
+                <% } %>    
+            </div>
+        </div>
+        
+</body>

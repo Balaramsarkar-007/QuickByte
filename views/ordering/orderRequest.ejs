@@ -1,0 +1,49 @@
+<% layout("/layout/boilerPlate.ejs") %>
+<h2 class="offset-1 mt-3 mb-3"><i>Your Order Requestes</i></h2>
+
+<% if(seller.orderReqs.length == 0) { %>
+  <div class="empty-order">
+  <h3> <i>You don't have anu order request yet</i></h3>
+  </div>
+<% } %>    
+
+<% [...seller.orderReqs].reverse().forEach(order => { %>
+    <div class="card-contenor">
+      <div class="card-body">
+        <h6><i> Order ID &nbsp; <%= order._id %></i></h6>
+        <p><b> <i><%= order.foodItem.title %> </b> </i>  </p>
+        <p> Quantity : <i>&nbsp;<%= order.orderDetails.quintity %></i>  </p>
+        <p> Price &nbsp;&nbsp; <b></b>&#8377;<%= order.orderDetails.price %></b> </p>
+        <p> Food Customise : <i>&nbsp;<%= order.orderDetails.customise %></i>  </p>
+        <p>Delivery address : <i><%= order.orderDetails.address %></i></p>
+        <p>Payment Mode : <i><%= order.orderDetails.paymentMode %></i></p>
+          <% if(order.status === "Order Cancel By Customer") { %>
+          <p><b>status : <i style="color: red;">&nbsp; &nbsp;<%= order.status %> </i></b> </p>
+          <% } if(order.status === "Order Delivered") { %>
+            <p><b>status : <i style="color: green;">&nbsp; &nbsp;<%= order.status %> </i></b> </p>
+          <% }if(order.status === "Accepted") { %>
+            <p><b>status : <i style="color: green;">&nbsp; &nbsp;<%= order.status %> </i></b> </p>
+          <% } if(order.status === "order Cancel By Seller") { %>
+            <p><b>status : <i style="color: red;">&nbsp; &nbsp;you cancel the order </i></b> </p>   
+          <% } %>  
+        <p><%= order.createdAt.toString().split(" ")[4] %> &nbsp;<%= order.createdAt.toString().split(" ").slice(0, 4).join("-") %></p> 
+        <% if(order.status ===  "Order Delivered") { %>
+        <a href="/order/<%= order.seller._id %>/delivered/<%= order._id %>" class="btn btn-danger me-2 mt-3">Order Delivered</a>
+        <% } else if(!(order.status === "Order Cancel By Customer")) { %>
+          <a href="/order/<%= order.seller._id %>/accept/<%= order._id %>" class="btn btn-primary me-2 mt-3">Accept Order</a>
+          <a href="/order/<%= order.seller._id %>/cancel/<%= order._id %>" class="btn btn-danger mt-3">cancel Order</a>
+          <a href="/order/<%= order.seller._id %>/delivered/<%= order._id %>" class="btn btn-danger me-2 mt-3">Order Delivered</a>
+          <% } %>
+          
+      </div>
+      <a href="/show/<%= order.foodItem._id %>">
+      <div class="card order-card" style="width: 16rem;">
+        <img src="<%=order.foodItem.image.url  %>" class="card-img-top" alt="...">
+      </div>
+      </a>
+      
+    </div>
+  
+      
+  <% }) %>
+  

@@ -1,0 +1,49 @@
+<% layout("/layout/boilerPlate.ejs") %>
+<h2 class="offset-1 mt-3 mb-3"><i>Your Order Histry</i></h2>
+
+<% if(user.orders.length == 0) { %>
+  <div class="empty-order">
+    <div class="empty-order-inside">
+      <h3> <i>Make Your first Order Now</i></h3>
+      <a href="/listings" class="btn btn-danger empty-btn">Orders Now</a>
+    </div>
+  </div>
+<% } %>  
+
+<% [...user.orders].reverse().forEach(order => { %>
+  <div class="card-contenor">
+    <div class="card-body">
+      <h6><i> Order ID &nbsp; <%= order._id %></i></h6>
+      <p class="card-text"><b> <i><%= order.foodItem.title %> </b> </i>  </p>
+      <p class="card-text"> Price :&nbsp;&nbsp; <b></b>&#8377;<%= order.orderDetails.price %></b> </p>
+      <p class="card-text"> Quintity :&nbsp;&nbsp; <b><%= order.orderDetails.quintity %></b> </p>
+      <p class="card-text"> At &nbsp;<%= order.seller.shopeName %> </p>
+        <% if(order.status === "Accepted") { %>
+        <p><b>status : <i style="color: green;">&nbsp; &nbsp;<%= order.status %> </i></b> </p>
+        <p>updates : <i>Your delivery requestes is in process and we will delevary soon</i></p>
+        <% } if(order.status === "order Cancel By Seller") {  %>
+        <p ><b>status :<i style="color: red;">&nbsp; &nbsp;<%= order.status %> </i></b> </p>
+        <% } if (order.status === "Pending") { %>  
+          <p ><b>status :<i style="color: red;">&nbsp; &nbsp;<%= order.status %> </i></b> </p>
+        <% } if(order.status === "Order Cancel By Customer"){ %>  
+          <p ><b>status :<i style="color: red;">&nbsp; &nbsp;Order Canceled </i></b> </p>
+        <% } if(order.status === "Order Delivered") { %>
+          <p><b>status : <i style="color: green;">&nbsp; &nbsp;<%= order.status %> </i></b> </p>
+        <% } %> %>  
+      <p>contact to seller : <%= order.seller.phoneNo %></p>
+      <p><%= order.createdAt.toString().split(" ")[4] %> &nbsp;<%= order.createdAt.toString().split(" ").slice(0, 4).join("-") %></p>
+      
+      <% if(!(order.status === "order Cancel By Seller")) { %>
+      <a href="/orders/<%= order.buyer._id %>/cancel/<%= order._id %>" class="btn btn-danger mt-3">cancel Order</a>
+      <% } %>
+    </div>
+    <a href="/show/<%= order.foodItem._id %>">
+    <div class="card order-card" style="width: 16rem;">
+      <img src="<%=order.foodItem.image.url  %>" class="card-img-top" alt="...">
+    </div>
+    </a>
+    
+  </div>
+
+    
+<% }) %>

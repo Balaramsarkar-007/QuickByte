@@ -1,0 +1,75 @@
+<% layout("/layout/boilerPlate.ejs") %>
+
+<body>
+    <h2 class="offset-2 mt-3 mb-3">Update Your Food Deatils</h2>
+    <form method="post" action="/update/<%= foodDetail._id %>?_method=PUT" class="needs-validation" enctype="multipart/form-data"  novalidate>
+
+        <div class="row">
+            <div class="col-7 offset-2">
+                <div class=" mb-3">
+                    <label for="title "  class="form-label"><p>Titile </p></label>
+                    <input placeholder="Enter Catchy Title" class="form-control" name="foodListing[title]" value="<%= foodDetail.title %>" type="text" required>
+                    <div class="valid-feedback">Looks good!</div>
+                    <div class="invalid-feedback">Please choose a Title. </div>
+                </div>
+                
+                <div class=" mb-3">
+                    <label for="about "  class="form-label"><p>About Food</p></label>
+                    <textarea placeholder="Enter Descritpions" class="form-control" name="foodListing[about]" type="text" required><%= foodDetail.about %></textarea>
+                    <div class="valid-feedback">Looks good!</div>
+                    <div class="invalid-feedback">Please Fill The Descritpions. </div>
+                </div>
+
+                <div class=" mb-3 ">
+                    Original Image <br>
+                    <img src="<%= originalImageUrl %>">
+                </div>
+
+                <div class=" mb-3">
+                    <label for="image "  class="form-label"><p>Upload food Image</p></label>
+                    <input placeholder="Upload Image " class="form-control" name="foodListing[image]" type="file">
+                </div>
+                
+                
+                <div class="row">
+                    <div class="col-3 col-md-4">
+                        <div class=" mb-3">
+                            <div class="mb-3">
+                                <label for="price "  class="form-label"><h4>Enter Price</h4></label>
+                            
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">&#8377;</span>
+                                    <input placeholder="Enter Price" class="form-control" name="foodListing[price]" value="<%= foodDetail.price %>" type="number" required>
+                                    <div class="valid-feedback">Looks good!</div>
+                                    <div class="invalid-feedback">Please Enter a valid Price. </div>
+                                </div>
+                            </div>
+                           
+                            
+                        </div>
+                    </div>    
+                     
+                    <div class="col-4 col-md-8">
+                        <div>    
+                            <label  class="form-label mb-3"><p> Food Catgory </p></label>
+                            <select class="form-select mb-3" name="foodListing[category]" value="<%= foodDetail.category %>" required>
+                                <option value="snacks" name="foodListing[snacks]"> snacks</option>
+                                <option value="ice cream" name="foodListing[ice cream]"> ice cream</option>
+                                <option value="juice/coldDrinks" name="foodListing[juice/coldDrinks]"> juice/coldDrinks</option>
+                                <div class="valid-feedback">Looks good!</div>
+                                <div class="invalid-feedback">Please choose a options. </div>
+                            </select><br>
+                        </div>
+                    </div>    
+                        
+                    
+                </div>
+                
+               
+                
+                <button class="btn btn-primary">Edit Item</button>
+            </div>    
+        </div>
+
+    </form>
+</body>

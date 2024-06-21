@@ -1,0 +1,30 @@
+<% layout("/layout/boilerPlate.ejs") %>
+
+<h2 class="offset-4 mb-3">Login</h2>
+<form method="post" action="/login/seller" class="needs-validation" novalidate>
+    <div class="row">
+        <div class="col-4 offset-4">
+            <div class=" mb-3">
+                <label for="title "  class="form-label"><p>Username</p></label>
+                <input placeholder="Enter username" class="form-control" name="username" id="username" type="text" required>
+            </div>
+
+            <div class=" mb-3">
+                <label for="title "  class="form-label"><p>Shope Name</p></label>
+                <input placeholder="Enter username" class="form-control" name="shopeName" id="shopeName" type="text" required>
+            </div>
+
+            <div class=" mb-3">
+                <label for="title "  class="form-label"><p>Password</p></label>
+                <input placeholder="Enter password" class="form-control" name="password" id="password" type="password" required>
+            </div>
+            
+            <button class="btn btn-primary">login</button>
+        </div>
+    </div>    
+</form>
+
+<!-- <div class="offset-4 mt-3 mb-3">
+    <h5>Are you registered</h5>
+    <a href="http://localhost:8080/signUp" class="btn btn-warning">Sign-up</a>
+</div> -->
