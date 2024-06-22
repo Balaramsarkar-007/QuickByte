@@ -1,7 +1,7 @@
 const foodListing = require("./models/foodListing.js");
 const ExpressError = require("./utils/ExpressError.js");
 const Review = require("./models/review.js");
-const {listingSchema, reviewSchema, orderSchema } = require("./Schema.js");
+const {listingSchema, reviewSchema, orderSchema, userSchema, sellerSchema } = require("./Schema.js");
 
 module.exports.isLogedIn = (req, res, next) => {
     if(!req.isAuthenticated()) {
@@ -34,6 +34,26 @@ module.exports.isOwner =  async (req, res, next) => {
 
 module.exports.validateListing = (req, res, next) => {
     let {error} = listingSchema.validate(req.body);
+    if(error) {
+        throw new ExpressError(400, error);
+    }   
+    else {
+        next();
+    }
+}
+
+module.exports.validateSeller = (req, res, next) => {
+    let {error} = sellerSchema.validate(req.body);
+    if(error) {
+        throw new ExpressError(400, error);
+    }   
+    else {
+        next();
+    }
+}
+
+module.exports.validateUser = (req, res, next) => {
+    let {error} = userSchema.validate(req.body);
     if(error) {
         throw new ExpressError(400, error);
     }   

@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const User = require("../models/user.js");
 const wrapAsync = require("../utils/wrapAsync.js");
 const passport = require("passport");
-const { saveRedirectURL} = require("../middleware.js");
+const User = require("../models/user.js");
+const { saveRedirectURL, validateUser} = require("../middleware.js");
 
 const userController = require("../controllers/user.js");
 
@@ -13,7 +13,7 @@ router.get("/signup", (req, res) => {
 });
 
 //signup route
-router.post("/signup", wrapAsync(userController.signupRoute));
+router.post("/signup", validateUser, wrapAsync(userController.signupRoute));
 
 //login get route
 router.get("/login", (req, res) => {

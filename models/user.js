@@ -9,12 +9,18 @@ const userSchema = new Schema ({
         type : String,
         unquie : true,
         required : true,
+        match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address'],
     },
     phoneNo : {
         type : Number,
-        min : 10,
         unquie : true,
-        required : true
+        required : true,
+        validate: {
+            validator: function(v) {
+                return /\d{10,12}/.test(v); 
+            },
+            message: props => `${props.value} is not a valid phone number!`
+        },
     },
     shopeName :{
             type : String,
@@ -38,6 +44,6 @@ const userSchema = new Schema ({
     }
 });
 
-userSchema.plugin(passportLocalMongoose,{usernameUnique :false});
+userSchema.plugin(passportLocalMongoose);
 
 module.exports = mongoose.model("User", userSchema);

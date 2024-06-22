@@ -26,3 +26,23 @@ module.exports.orderSchema = joi.object({
         paymentMode : joi.string().required()
     }).required(),
 });
+
+module.exports.userSchema = joi.object({
+    user : joi.object({
+        username : joi.string().required(),
+        email : joi.string().required(),
+        phoneNo : joi.number().required().min(10),
+        password : joi.string().required(),
+    }).required(),
+})
+
+module.exports.sellerSchema = joi.object({
+    seller : joi.object({
+        username : joi.string().required(),
+        email : joi.string().required(),
+        phoneNo : joi.number().min(10).required(),
+        shopeName : joi.string().required(),
+        password : joi.string().required(),
+    }).required(),
+})
+    

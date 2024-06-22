@@ -3,6 +3,8 @@ const router = express.Router();
 const Seller = require("../models/user.js");
 const passport = require("passport");
 const wrapAsync = require("../utils/wrapAsync.js");
+const {validateSeller} = require("../middleware.js");
+
 
 const sellerControllers = require("../controllers/seller.js");
 
@@ -12,7 +14,7 @@ router.get("/signup/seller", (req, res) => {
 });
 
 //signup route
-router.post("/signup/seller", wrapAsync(sellerControllers.signupRoute));
+router.post("/signup/seller", validateSeller, wrapAsync(sellerControllers.signupRoute));
 
 //login get route
 router.get("/login/seller", (req, res) => {

@@ -2,7 +2,7 @@ const Seller = require("../models/user.js");
 
 module.exports.signupRoute = async (req, res) => {
     try {
-    let {username, phoneNo, email, shopeName, password} = req.body;
+    let {username, phoneNo, email, shopeName, password} = req.body.seller;
     const newSeller = new Seller({username, phoneNo, email, shopeName});
     const registeredSeller = await Seller.register(newSeller, password);
     req.login(registeredSeller, (err) => {

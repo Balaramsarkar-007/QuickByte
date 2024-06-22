@@ -25,6 +25,7 @@ const orderingRoute = require("./routes/ordering.js");
 
 
 const dburl = process.env.ATLASBD_URL;
+// const mongo_url = 'mongodb://127.0.0.1:27017/quickbyte'
 
 const store = MongoStore.create({
     mongoUrl : dburl,
@@ -124,6 +125,7 @@ app.use((err, req, res, next) => {
     let {statusCode=400, message="Something went worng"} = err;
     res.status(statusCode).render("listings/error.ejs" ,{message});
 })
+// 
 
 app.listen(8080, () => {
     console.log("app is listing at port 8080");
