@@ -1,7 +1,8 @@
 body {
     display: flex;
-    min-height: 100vh;
+    height: 100vh;
     flex-direction: column;
+    font-family: Arial, sans-serif;
 }
 
 a {
@@ -230,6 +231,7 @@ footer {
 
 .price {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .outer-contenor {
@@ -262,4 +264,101 @@ footer {
     margin: 0 !important;
     border-radius: 50%;
     object-fit: cover;
+}
+
+
+/* Responsive styles */
+@media only screen and (max-width: 450px) {
+    header {
+        width: 100% !important;
+        height: 14rem !important;
+        padding:0 !important;
+        margin: 0 !important;
+    }
+
+    header .container a, img  {
+        font-size: 1em;
+    }
+
+    header ul li a, .btn, input {
+       font-size: 0.7rem !important;
+    }
+
+     .inner-contenor i, p {
+        font-size: 0.8rem;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+
+    .card-listing {
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 13rem !important;
+    }
+    
+    .card-listing img {
+        height: 8.5rem !important;
+        width: 10rem;
+    }
+
+    .card-listing p {
+       font-size: 1rem;
+    }
+
+    button {
+       margin: 0 !important;
+    }
+
+    .heading-catagoty, .heading-title {
+     font-size: 1.2rem;   
+    }
+
+    .card-body-review {
+       margin: 0 !important;
+       width: 12rem !important;
+    }
+
+    .card-body-review h5 {
+        font-size: 0.9rem;
+    }
+
+    .card-body-review {
+        font-size: 0.7rem;
+    }
+
+    .offset-4  {
+        margin: 1rem !important;
+        font-size: 1.5rem !important;
+    }
+
+    .offset-4 input {
+        width: 15rem;
+    }
+
+    .add-to-card {
+        margin: 1rem !important;
+    }
+
+    .quintity input {
+        width: 3rem;
+        margin: 0;
+    }
+
+    .price input {
+        margin: 0 !important;
+        padding: o !important;
+        width: 3rem;
+    }
+
+    .price {
+        margin: 0;
+    }
+
+    .rate label {
+        height: 3rem;
+        padding: 0 !important;
+        margin: 0.3rem !important;
+    }
 }

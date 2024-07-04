@@ -94,21 +94,9 @@ main()
 .catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect(dburl );
+  await mongoose.connect(dburl);
 }
 
-//fakeuser
-app.get("/fakeuser", async (req, res) => {
-    const newuser = new Seller({
-        email : "abc@gmail.com",
-        phoneNo : 1234567890,
-        username : "abc",
-        shopeName : "abc shope",
-    });
-
-    let registerUser = await Seller.register(newuser, "abc@123");
-    res.send(registerUser);
-})
 
 //index root
 app.get('/', async (req, res) => {

@@ -2,7 +2,7 @@
 
 <h4 class="offset-2"><i><b>Order your favourite food</b></i></h4>
 
-<div class="row mt-3  offset-2">
+<div class="row mt-3  offset-2 add-to-card">
         <div class="col-8 card-listing card-order show-card mb-3">
             <img src="<%= foodDetail.image.url %>" class="card-img" alt="foodListing_image" >
                 <p class="card-text"><i><%= foodDetail.about %></i>  </p>
@@ -22,7 +22,7 @@
             </div>
 
                 <div class="mb-3 col-4">
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-3 price">
                         <span class="input-group-text" id="basic-addon1" >&#8377;</span>
                         <input id="price"  class="form-control" name="orderDetails[price]" type="number" value="<%=foodDetail.price%>" required readonly>
                     </div>
